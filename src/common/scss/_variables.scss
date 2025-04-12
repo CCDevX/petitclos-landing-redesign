@@ -1,32 +1,31 @@
-$bg-primary: #2c2f33; // Fond principal, sombre et chaleureux
-$bg-secondary: #383c42; // Fond secondaire pour les blocs
-$bg-elevated: #444a52; // Fond des cartes, modals et éléments surélevés
+// Backgrounds
+$bg-primary: #000000;
+$bg-secondary: #222222;
+$bg-elevated: #333333;
 
 // Couleurs de texte
-$text-primary: #f8f9fa; // Blanc cassé pour le texte principal
-$text-secondary: #b0b3b8; // Gris clair pour les textes secondaires
+$text-primary: #ffffff;
+$text-secondary: #b3b3b3;
 
-// Couleurs d’accentuation
-$accent-color: #a45a3c; // Terracotta, apportant une touche chaleureuse et authentique
-$accent-hover: #b55b48; // Légèrement plus clair pour l’effet hover
+$accent-color: #ffffff;
+$accent-hover: #cccccc;
 
-// Autres variables design
-$border-color: #555d66; // Bordures discrètes mais visibles
+$border-color: #444444;
 $sidebar-width: 25rem;
 $header-height: 6rem;
 $transition-speed: 0.3s;
-$box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.1);
+$box-shadow: 0 0.4rem 0.6rem rgba(255, 255, 255, 0.1);
+$text-shadow-hover: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.3);
 
 // Typographie
 $font-family: "Outfit", sans-serif;
-$font-title: "Anton", sans-serif;
+$font-title: "Oswald", sans-serif;
 
-// Metallic tones pour des éléments décoratifs
-$gold-metallic: #d4a743;
-$silver-metallic: #b6b6b6;
+// Metallic tones
+$gold-metallic: #cccccc;
+$silver-metallic: #999999;
 
-// Couleurs status partagées
-$error: #d95d5d;
-$error-hover: #e97a7a;
-$succes: #4ea88c;
-$succes-hover: #64c0a2;
+$error: #ff0000;
+$error-hover: #ff4d4d;
+$succes: #00ff00;
+$succes-hover: #33ff33;

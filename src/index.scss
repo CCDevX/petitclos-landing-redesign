@@ -60,7 +60,10 @@ body {
           font-family: $font-title;
           transition: $transition-speed;
 
-          &:hover,
+          &:hover {
+            color: $accent-hover;
+            text-shadow: $text-shadow-hover;
+          }
           &.active {
             color: $accent-color;
             font-weight: bold;
@@ -122,7 +125,10 @@ body {
           transition: $transition-speed;
           text-decoration: none;
 
-          &:hover,
+          &:hover {
+            color: $accent-hover;
+            text-shadow: $text-shadow-hover;
+          }
           &.active {
             font-weight: bold;
             color: $accent-color;

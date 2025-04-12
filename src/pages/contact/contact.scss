@@ -1,0 +1,97 @@
+@use "../../common/scss/_variables.scss" as *;
+
+.contact {
+  padding: 4rem 2rem;
+  background-color: $bg-primary; // Utiliser la couleur principale (par exemple, noir)
+  color: $text-primary; // Texte en couleur primaire (blanc)
+  text-align: center;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .container {
+    margin-top: 5rem;
+    max-width: 80rem;
+    //margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: $font-title;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-message {
+    font-family: $font-family;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .contact-form {
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        label {
+          font-family: $font-title;
+          font-size: 2rem;
+          margin-bottom: 1rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          padding: 0.75rem;
+          border: 2px solid $border-color;
+          border-radius: 0.3rem;
+          background-color: $bg-secondary;
+          color: $text-primary;
+          font-family: $font-family;
+          transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+          outline: none;
+          border-color: $accent-color;
+        }
+
+        textarea {
+          height: 150px;
+          resize: none;
+        }
+      }
+
+      .btn-submit {
+        align-self: center;
+        padding: 1rem 2rem;
+        background-color: $accent-color;
+        color: $bg-primary;
+        border: none;
+        border-radius: 0.5rem;
+        font-family: $font-family;
+        font-size: 1.8rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+          background-color: $accent-hover;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}

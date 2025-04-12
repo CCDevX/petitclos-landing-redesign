@@ -1,0 +1,198 @@
+@use "../../common/scss/variables" as *;
+
+.home-page {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-primary;
+  color: $text-primary;
+  padding: 2rem;
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 18vw;
+      display: block;
+      opacity: 0;
+      animation: fadeIn 5s ease-out forwards;
+    }
+  }
+
+  .intro-container {
+    max-width: 800px;
+    margin: 2rem auto 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 5s ease-out forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    strong {
+      font-size: 2.5rem;
+      font-weight: bold;
+      align-self: center;
+    }
+    p {
+      letter-spacing: 1.5;
+      font-family: $font-family;
+      font-size: 1.6rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: $accent-color;
+      color: $bg-primary;
+      border-radius: 0.5rem;
+      font-family: $font-family;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.8rem;
+      transition: background $transition-speed, transform $transition-speed;
+      margin-top: 2rem;
+      &:hover {
+        background-color: $accent-hover;
+        transform: translateY(-0.2rem);
+      }
+    }
+  }
+}
+
+.features {
+  height: 90vh;
+  padding: 4rem 2rem;
+  background-color: $bg-secondary;
+  color: $text-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .features-container {
+    height: 100%;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+
+    .feature-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background-color: $bg-primary;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.2);
+      text-align: center;
+      overflow: hidden;
+
+      /* Conteneur ratio-box pour l’image */
+      .feature-img-container {
+        position: relative;
+        width: 100%;
+        /* Ex: ratio 4:6 => 66.6667% pour 6/9 => 66.6667 */
+        /* Choisis la valeur selon le ratio que tu souhaites, ex. 4/5 => 80% */
+        padding-top: 150%; /* Pour un ratio ~2:3, à ajuster ! */
+        overflow: hidden;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: grayscale(0.9);
+
+          &:hover {
+            filter: grayscale(0.3);
+          }
+        }
+      }
+
+      /* Zone de texte */
+      h2 {
+        font-family: $font-title;
+        font-size: 2.5rem;
+        margin: 1rem 0;
+      }
+      p {
+        font-family: $font-family;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        padding: 0 1rem 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .features-container {
+      flex-direction: column;
+      height: auto; /* Permet un défilement vertical */
+    }
+  }
+}
+
+/*Animations*/
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* (Optionnel) Animation de la flèche de scroll si nécessaire */
+.scroll-down {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
