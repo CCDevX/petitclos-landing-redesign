@@ -1,4 +1,5 @@
 @use "../../common/scss/variables" as *;
+@use "../../common/scss/media-queries" as *;
 
 .home-page {
   width: 90vw;
@@ -25,7 +26,7 @@
       width: 18vw;
       display: block;
       opacity: 0;
-      animation: fadeIn 5s ease-out forwards;
+      animation: fadeIn 6s ease-out forwards;
     }
   }
 
@@ -42,6 +43,11 @@
       font-size: 2.5rem;
       font-weight: bold;
       align-self: center;
+      @include sm {
+        font-size: 2rem;
+        text-align: center;
+        line-height: 1;
+      }
     }
     p {
       letter-spacing: 1.5;
@@ -50,6 +56,11 @@
       line-height: 1.2;
       margin-bottom: 1rem;
       display: inline-block;
+
+      @include sm {
+        margin-bottom: 0.5rem;
+        line-height: 1;
+      }
     }
 
     .btn-cta {
@@ -68,6 +79,12 @@
         background-color: $accent-hover;
         transform: translateY(-0.2rem);
       }
+      @include sm {
+        padding: 0.5rem 1rem;
+      }
+    }
+    @include sm {
+      margin: 1rem;
     }
   }
 }
@@ -105,8 +122,6 @@
       .feature-img-container {
         position: relative;
         width: 100%;
-        /* Ex: ratio 4:6 => 66.6667% pour 6/9 => 66.6667 */
-        /* Choisis la valeur selon le ratio que tu souhaites, ex. 4/5 => 80% */
         padding-top: 150%; /* Pour un ratio ~2:3, à ajuster ! */
         overflow: hidden;
 
@@ -123,6 +138,9 @@
             filter: grayscale(0.3);
           }
         }
+        @include sm {
+          padding-top: 120%;
+        }
       }
 
       /* Zone de texte */
@@ -130,25 +148,37 @@
         font-family: $font-title;
         font-size: 2.5rem;
         margin: 1rem 0;
+        @include sm {
+          font-size: 2rem;
+        }
       }
       p {
         font-family: $font-family;
         font-size: 1.6rem;
         line-height: 1.5;
         padding: 0 1rem 1rem;
+        @include sm {
+          font-size: 1.4rem;
+        }
+      }
+      @include sm {
+        width: 100%;
+        max-width: none;
       }
     }
-  }
 
-  @media (max-width: 768px) {
-    .features-container {
+    @include sm {
+      height: auto;
       flex-direction: column;
-      height: auto; /* Permet un défilement vertical */
+      gap: 2rem;
+      align-items: flex-start;
     }
   }
+  @include sm {
+    height: auto; /* Pour éviter que la section ne déborde */
+    padding: 2rem 1rem;
+  }
 }
-
-/*Animations*/
 
 @keyframes fadeIn {
   from {

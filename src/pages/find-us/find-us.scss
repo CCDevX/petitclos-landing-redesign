@@ -1,4 +1,5 @@
 @use "../../common/scss/variables" as *;
+@use "../../common/scss/media-queries" as *;
 
 .find-us-section {
   width: 100%;
@@ -43,6 +44,10 @@
         border: none;
         border-radius: 0.5rem;
         box-shadow: $box-shadow;
+        @include sm {
+          height: 30rem;
+          width: 30rem;
+        }
       }
     }
 
@@ -129,25 +134,11 @@
         }
       }
     }
-  }
-}
-
-/* Responsive : sur petits écrans, la carte et l'info-container s'empilent */
-@media (max-width: 768px) {
-  .find-us-section {
-    /* Réduit un peu le padding sur mobile */
-    padding: 4rem 1rem;
-  }
-
-  .find-us-content {
-    flex-direction: column;
-    gap: 2rem; // Espace vertical entre la carte et l'info-container
-
-    .map-container,
-    .info-container {
-      flex: 1;
-      max-width: 600px;
-      margin: 0 auto;
+    @include sm {
+      flex-direction: column;
     }
+  }
+  @include sm {
+    height: auto;
   }
 }

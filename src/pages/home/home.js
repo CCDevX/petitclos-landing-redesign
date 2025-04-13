@@ -20,4 +20,4 @@ const initHomePage = () => {
   imgTerrace.src = terraceUrl;
 };
 
-initHomePage();
+export { initHomePage };
