@@ -3,22 +3,23 @@
 
 .contact {
   padding: 4rem 2rem;
-  background-color: $bg-primary; // Utiliser la couleur principale (par exemple, noir)
-  color: $text-primary; // Texte en couleur primaire (blanc)
+  background-color: $bg-primary;
+  color: $text-primary;
   text-align: center;
-  height: 75vh;
+  min-height: 75vh; // Utilisation de min-height au lieu de height
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; // Alignement vertical au centre
 
   .container {
-    margin-top: 5rem;
     max-width: 80rem;
-    //margin: 0 auto;
+    width: 100%; // Ajout pour une meilleure gestion sur les petits écrans
+    margin-top: 2rem; // Réduction de la marge supérieure pour les petits écrans
     @include sm {
       margin-top: 1rem;
       max-width: 100%;
-      height: auto;
+      padding: 0 1rem; // Ajout de padding horizontal pour les petits écrans
     }
   }
 
@@ -29,6 +30,7 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     @include sm {
+      font-size: 2rem;
       margin-bottom: 2rem;
     }
   }
@@ -39,11 +41,13 @@
     margin-bottom: 2rem;
     line-height: 1.6;
     @include sm {
+      font-size: 1.4rem;
       margin-bottom: 2rem;
     }
   }
 
   .contact-form {
+    width: 100%; // Ajout pour prendre toute la largeur disponible
     form {
       display: flex;
       flex-direction: column;
@@ -60,6 +64,9 @@
           margin-bottom: 1rem;
           text-transform: uppercase;
           letter-spacing: 1px;
+          @include sm {
+            font-size: 1.8rem;
+          }
         }
 
         input,
@@ -103,12 +110,14 @@
           background-color: $accent-hover;
           transform: translateY(-2px);
         }
+        @include sm {
+          padding: 0.8rem 1.5rem;
+          font-size: 1.6rem;
+        }
       }
     }
   }
   @include sm {
-    height: auto;
-    padding: 1rem;
-    justify-content: center;
+    padding: 2rem 1rem; // Ajustement du padding pour les petits écrans
   }
 }

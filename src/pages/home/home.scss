@@ -2,28 +2,29 @@
 @use "../../common/scss/media-queries" as *;
 
 .home-page {
-  width: 90vw;
+  width: 100%; // Utilisation de 100% pour une meilleure réactivité
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .intro {
-  height: 90vh;
+  min-height: 90vh; // Utilisation de min-height au lieu de height
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: $bg-primary;
   color: $text-primary;
-  padding: 2rem;
+  padding: 2rem 1rem; // Ajustement du padding pour les petits écrans
 
   .hero-image {
     display: flex;
     justify-content: center;
     align-items: center;
     img {
-      width: 18vw;
+      max-width: 300px; // Utilisation de max-width pour un meilleur contrôle
+      width: 80%; // Ajustement de la largeur pour les petits écrans
       display: block;
       opacity: 0;
       animation: fadeIn 6s ease-out forwards;
@@ -46,20 +47,21 @@
       @include sm {
         font-size: 2rem;
         text-align: center;
-        line-height: 1;
+        line-height: 1.2;
       }
     }
     p {
       letter-spacing: 1.5;
       font-family: $font-family;
       font-size: 1.6rem;
-      line-height: 1.2;
+      line-height: 1.5; // Amélioration de la hauteur de ligne pour la lisibilité
       margin-bottom: 1rem;
       display: inline-block;
 
       @include sm {
         margin-bottom: 0.5rem;
-        line-height: 1;
+        font-size: 1.4rem;
+        line-height: 1.4;
       }
     }
 
@@ -80,7 +82,8 @@
         transform: translateY(-0.2rem);
       }
       @include sm {
-        padding: 0.5rem 1rem;
+        padding: 0.8rem 1.5rem;
+        font-size: 1.6rem;
       }
     }
     @include sm {
@@ -90,8 +93,8 @@
 }
 
 .features {
-  height: 90vh;
-  padding: 4rem 2rem;
+  min-height: 90vh; // Utilisation de min-height au lieu de height
+  padding: 4rem 1rem; // Ajustement du padding pour les petits écrans
   background-color: $bg-secondary;
   color: $text-primary;
   display: flex;
@@ -118,11 +121,10 @@
       text-align: center;
       overflow: hidden;
 
-      /* Conteneur ratio-box pour l’image */
       .feature-img-container {
         position: relative;
         width: 100%;
-        padding-top: 150%; /* Pour un ratio ~2:3, à ajuster ! */
+        padding-top: 150%; // Ajustement du ratio pour différentes tailles d'écran
         overflow: hidden;
 
         img {
@@ -139,11 +141,10 @@
           }
         }
         @include sm {
-          padding-top: 120%;
+          padding-top: 100%; // Ajustement du ratio pour les petits écrans
         }
       }
 
-      /* Zone de texte */
       h2 {
         font-family: $font-title;
         font-size: 2.5rem;
@@ -175,7 +176,7 @@
     }
   }
   @include sm {
-    height: auto; /* Pour éviter que la section ne déborde */
+    height: auto;
     padding: 2rem 1rem;
   }
 }
@@ -197,32 +198,5 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* (Optionnel) Animation de la flèche de scroll si nécessaire */
-.scroll-down {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2rem;
-  cursor: pointer;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  40% {
-    transform: translateX(-50%) translateY(-10px);
-  }
-  60% {
-    transform: translateX(-50%) translateY(-5px);
   }
 }
