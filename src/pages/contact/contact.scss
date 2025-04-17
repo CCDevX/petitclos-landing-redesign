@@ -121,3 +121,91 @@
     padding: 2rem 1rem; // Ajustement du padding pour les petits écrans
   }
 }
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: $font-family;
+  font-size: 1.6rem;
+  color: $text-primary;
+  margin-bottom: 2rem;
+
+  // On cache la checkbox native
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    // Style pour l'état de focus (accessibilité)
+    &:focus + label::before {
+      outline: 2px solid $accent-color; /* Indication visuelle de focus */
+      outline-offset: 2px; /* Pour éviter le chevauchement avec la bordure */
+    }
+  }
+
+  // Le label englobe l’icône et le texte
+  label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+    font-size: 1.6rem;
+
+    &:hover {
+      color: $accent-hover;
+    }
+
+    // Cercle personnalisé avant le texte
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 1.8rem;
+      height: 1.8rem;
+      margin-right: 0.75rem;
+      border: 2px solid $accent-color;
+      border-radius: 0.4rem;
+      background-color: transparent;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    a {
+      color: $text-primary; /* Couleur normale du lien */
+      transition: color 0.3s ease; /* Pour une transition de couleur douce au hover */
+
+      &:hover {
+        color: $accent-color; /* Couleur au survol */
+      }
+
+      &:active {
+        color: $accent-color; /* Couleur lorsque le lien est cliqué (actif) */
+      }
+    }
+  }
+
+  // Quand la case est cochée…
+  input[type="checkbox"]:checked + label {
+    color: $accent-color;
+
+    &::before {
+      background-color: $accent-color;
+      border-color: $accent-color;
+
+      // ✔ icon au centre (option 1 : caractère)
+      &::after {
+        content: "✔";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        font-size: 1.4rem;
+        color: $text-primary;
+      }
+    }
+  }
+}

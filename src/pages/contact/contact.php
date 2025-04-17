@@ -22,6 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Attempt to send the email using the native mail() function
         if (mail($to, $subject, $body, $headers)) {
             echo "Votre message a été envoyé avec succès.";
+            header('Location: /'); // Le '/' indique la racine du domaine
+            exit(); // Important d'arrêter l'exécution du script après la redirection
         } else {
            echo "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard.";
         }

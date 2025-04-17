@@ -5,7 +5,7 @@
       Pour toute demande ou suggestion, n'hésitez pas à nous laisser un message.
     </p>
     <div class="contact-form">
-      <form action="./contact.php" method="post">
+      <form action="./contact.php" method="post" id="form">
         <div class="form-group">
           <label for="name">Nom</label>
           <input
@@ -35,7 +35,15 @@
             required
           ></textarea>
         </div>
-        <button type="submit" class="btn-submit">Envoyer</button>
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="gdpr" name="gdpr" />
+          <label for="gdpr">
+            J’accepte la&nbsp;
+            <a target="_blank" id="open-policy"> politique de confidentialité</a
+            >.
+          </label>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">Envoyer</button>
       </form>
     </div>
   </div>

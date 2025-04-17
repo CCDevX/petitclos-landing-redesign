@@ -158,3 +158,43 @@ body {
     }
   }
 }
+
+/* Modal */
+
+.modal-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  pointer-events: none; /* Empêche l'élément de répondre aux événements de la souris lorsqu'il est caché */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+  pointer-events: none; /* Empêche l'élément de répondre aux événements de la souris lorsqu'il est caché */
+}
+
+.modal-container.active {
+  /* Ajoutez cette classe lorsque vous affichez la modal */
+  display: flex;
+  pointer-events: auto; /* Permet à l'élément de répondre aux événements de la souris lorsque la modal est active */
+}
+
+.modal-overlay.active {
+  /* Ajoutez cette classe lorsque vous affichez la modal */
+  display: block;
+  pointer-events: auto; /* Permet à l'élément de répondre aux événements de la souris lorsque l'overlay est actif */
+}

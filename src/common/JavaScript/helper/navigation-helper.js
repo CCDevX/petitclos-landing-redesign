@@ -22,7 +22,7 @@ const fetchPageContent = async (pageName) => {
   return response.text();
 };
 
-const loadPageScripts = async (pageName, pageConfig) => {
+const loadPageScripts = async (pageName, pageConfig, scr = "@pages") => {
   console.log("load scriptpageName : ", pageName);
   try {
     const module = await import(`@pages/${pageName}/${pageName}.js`);

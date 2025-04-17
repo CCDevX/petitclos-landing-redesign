@@ -8,6 +8,7 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "src"),
       "@pages": path.resolve(__dirname, "src/pages"),
+      "@pages/modals": path.resolve(__dirname, "src/pages/modals"),
     },
   },
   base: "/",
